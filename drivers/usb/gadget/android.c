@@ -2591,7 +2591,7 @@ static int mass_storage_function_init(struct android_usb_function *f,
 	}
 
 #ifdef CONFIG_USB_ANDROID_SAMSUNG_COMPOSITE
-	fsg_mod_data.cdrom[0] = true;
+	fsg_mod_data.cdrom[0] = false;
 	fsg_mod_data.ro[0] = false;
 	fsg_mod_data.removable[0] = true;
 #else
