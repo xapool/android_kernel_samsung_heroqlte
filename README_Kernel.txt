@@ -27,4 +27,12 @@
 		Change to OUTPUT_DIR folder
 		EX) $(pwd)/out
 		$ make clean
+
+4. How to disable security check
+
+* [Disable TIMA RKP and KNOX KAP ](https://github.com/jcadduono/nethunter_kernel_herolte/commit/a332ead550aea9b9ee2f40a06eccd6a68898ad37)
+* [Disable TIMA, Trusted UI, KNOX KAP, and Root Restrictions ](https://github.com/jcadduono/nethunter_kernel_herolte/commit/4343966efe129d7ac52378811452dc4ebbba3ed2)
+* [compile a permissive SELinux kernel?](http://forum.xda-developers.com/google-nexus-5/devs-only/correct-to-compile-permissive-selinux-t3074761)
+* [Compiling a permissive Android kernel](http://graemehill.ca/compiling-permissive-android-kernel/)
+* [selinux enforce/permissive patch ](https://github.com/Tkkg1994/SuperKernel/commit/ab9d79d4c386fcd099381e52afbdee4c816a8874)
 ################################################################################
