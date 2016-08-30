@@ -661,7 +661,10 @@ long pn547_dev_ioctl(struct file *filp,
 					}
 				}
 				if (!(current_state & P61_STATE_WIRED))
+				{
 					gpio_set_value(pn547_dev->ese_pwr_req, 0);
+					msleep(60);
+				}
 
 				pn547_dev->spi_ven_enabled = false;
 
@@ -676,6 +679,7 @@ long pn547_dev_ioctl(struct file *filp,
 				if (!(current_state & P61_STATE_WIRED))
 				{
 					gpio_set_value(pn547_dev->ese_pwr_req, 0);
+					msleep(60);
 				}
 				/*If JCOP3.2 or 3.3 for handling triple mode protection signal NFC service */
 				else
@@ -715,7 +719,7 @@ long pn547_dev_ioctl(struct file *filp,
 					}
 				}
 				gpio_set_value(pn547_dev->ese_pwr_req, 0);
-				msleep(10);
+				msleep(60);
 				gpio_set_value(pn547_dev->ese_pwr_req, 1);
 				msleep(10);
 			} else {
@@ -827,7 +831,10 @@ long pn547_dev_ioctl(struct file *filp,
             if (current_state & P61_STATE_WIRED){
                 p61_update_access_state(pn547_dev, P61_STATE_WIRED, false);
                 if((current_state & (P61_STATE_SPI|P61_STATE_SPI_PRIO)) == 0)
+				{
                     gpio_set_value(pn547_dev->ese_pwr_req, 0);
+					msleep(60);
+				}
 			} else {
                 pr_err("%s : P61_SET_WIRED_ACCESS - failed, current_state = %x \n",
 						__func__, pn547_dev->p61_current_state);
@@ -839,6 +846,7 @@ long pn547_dev_ioctl(struct file *filp,
 		{
 			pr_info("%s : P61_ESE_GPIO_LOW  \n", __func__);
 			gpio_set_value(pn547_dev->ese_pwr_req, 0);
+			msleep(60);
 		}
 		else if(arg == 3)
 		{
